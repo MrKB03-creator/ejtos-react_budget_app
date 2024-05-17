@@ -65,11 +65,10 @@ export const AppReducer = (state, action) => {
                 ...state,
             };
         case 'CHG_CURRENCY':
-            action.type = "DONE";
-            state.currency = action.payload;
             return {
-                ...state
-            }
+                ...state,
+                currency: action.payload
+            };
 
         default:
             return state;
@@ -98,6 +97,7 @@ export const AppProvider = (props) => {
     // 4. Sets up the app state. takes a reducer, and an initial state
     const [state, dispatch] = useReducer(AppReducer, initialState);
     let remaining = 0;
+    
 
     if (state.expenses) {
             const totalExpenses = state.expenses.reduce((total, item) => {
@@ -112,8 +112,9 @@ export const AppProvider = (props) => {
                 expenses: state.expenses,
                 budget: state.budget,
                 remaining: remaining,
+                totalExpenses: state.totalExpenses,
                 dispatch,
-                currency: state.currency
+                currency: state.currency,
             }}
         >
             {props.children}
