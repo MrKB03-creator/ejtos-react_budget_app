@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import "bootstrap-icons/font/bootstrap-icons.css";
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 const ExpenseItem = (props) => {
@@ -43,8 +44,8 @@ const ExpenseItem = (props) => {
         <tr>
         <td>{props.name}</td>
         <td>{currency}{props.cost}</td>
-        <td><i onClick={event=> increaseAllocation(props.name) } class="bi bi-plus-circle-fill" style={{color:'green', cursor:'pointer'}}></i></td>
-        <td><i onClick={event=> decreaseAllocation(props.name)} class="bi bi-dash-circle-fill" style={{color:'red', cursor:'pointer'}}></i></td>
+        <td><i onClick={event=> increaseAllocation(props.name) } class="bi bi-plus-circle-fill" style={{color:'#4FAC5B', cursor:'pointer', fontSize:'2rem'}}></i></td>
+        <td><i onClick={event=> decreaseAllocation(props.name)} class="bi bi-dash-circle-fill" style={{color:'#AF2319', cursor:'pointer', fontSize:'2rem'}}></i></td>
         <td><i onClick={handleDeleteExpense} class="bi bi-trash" style={{ cursor:'pointer'}}></i></td>
         </tr>
     );
